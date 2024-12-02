@@ -4,6 +4,7 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import Image from "next/image";
 
 const LoginPage = () => {
   return (
@@ -64,7 +65,7 @@ const LoginPage = () => {
             variant="outline"
             className="w-full bg-zinc-800 border-zinc-700 hover:bg-zinc-700 space-x-2"
           >
-            <img src="/google.svg" alt="Google logo" className="w-5 h-5" />
+            <Image src="/google.svg" alt="Google logo" className="w-5 h-5" />
             <span>Continue com o Google</span>
           </Button>
 
