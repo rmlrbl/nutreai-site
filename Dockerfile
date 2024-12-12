@@ -1,12 +1,19 @@
 FROM node:18-alpine AS builder
 
 WORKDIR /app
+
+# Copia apenas os arquivos de package primeiro
 COPY package*.json ./
-RUN npm ci
+
+# Limpa cache e instala dependências
+RUN npm cache clean --force
+RUN npm ci --verbose
+
+# Copia o resto dos arquivos
+COPY . .
 
 ENV NEXT_PUBLIC_API_URL=https://service-789.nutre.ai
 
-COPY . .
 RUN npm run build
 
 FROM node:18-alpine
