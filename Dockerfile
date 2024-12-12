@@ -8,8 +8,8 @@ RUN apk add --no-cache libc6-compat
 # Copia arquivos de package
 COPY package*.json ./
 
-# Instala dependências
-RUN npm ci
+# Usa npm install em vez de npm ci
+RUN npm install
 
 # Copia resto dos arquivos
 COPY . .
