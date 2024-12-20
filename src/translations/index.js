@@ -18,7 +18,7 @@ export const translations = {
     featureDesc1: "Preencha seus dados e informe seus objetivos.",
     featureDesc1Extra:
       "Nossa inteligência artificial irá desenvolver um plano alimentar alinhado aos seus objetivos.",
-    featureTitle2: "Descreve suas refeições de forma simples e objetiva",
+    featureTitle2: "Descreva suas refeições de forma simples e objetiva",
     featureDesc2:
       "Digite de forma breve a composição da sua refeição e contabilize seus macros e calorias como se estivesse conversando com um amigo.",
 

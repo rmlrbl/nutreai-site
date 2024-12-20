@@ -1,3 +1,4 @@
+// src/app/page.jsx
 "use client";
 
 import React, { useState } from "react";
@@ -11,6 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { VideoLoop } from "@/components/video-loop";
+import { VideoProvider } from "@/contexts/VideoContext";
 import { TikTokCarousel } from "@/components/tiktok-carousel";
 import { Footer } from "@/components/footer";
 import { LanguageSelector } from "@/components/language-selector";
@@ -100,9 +102,9 @@ export default function LandingPage() {
                         <Image
                           src="/social/tiktok.svg"
                           alt="logo tiktok"
-                          width={21}
-                          height={21}
-                          className="inline-block"
+                          width={24}
+                          height={24}
+                          className="inline-block w-[21px] h-auto"
                         />
                       </div>
                     </div>
@@ -122,63 +124,62 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section with Video */}
-      <section className="min-h-screen flex flex-col">
-        {/* Seção Clara */}
-        <div className="flex-1 bg-white flex items-center">
-          <div className="container mx-auto px-6 lg:px-[150px] py-[50px]">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-20">
-              {/* Texto */}
-              <div className="lg:flex-1 space-y-4">
-                <h3 className="text-3xl font-bold text-customDark1 text-center">
-                  {t("featureTitle1")}
-                </h3>
-                <p className="text-customDark1 text-lg font-normal text-center">
-                  {t("featureDesc1")}
-                  <br />
-                  {t("featureDesc1Extra")}
-                </p>
-              </div>
-
-              {/* Vídeo */}
-              <div className="lg:flex-1 flex justify-center my-10 lg:my-0">
-                <div className="rounded-3xl overflow-hidden bg-customDark1 w-[321px] h-[321px]">
-                  <VideoLoop
-                    src="/videos/plano-alimentar.mp4"
-                    className="w-full"
-                  />
+      <VideoProvider>
+        <section className="min-h-screen flex flex-col">
+          {/* Seção Clara */}
+          <div className="flex-1 bg-white flex items-center">
+            <div className="container mx-auto px-6 lg:px-[150px] py-[50px]">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:gap-20">
+                {/* Texto */}
+                <div className="lg:flex-1 space-y-4">
+                  <h3 className="text-3xl font-bold text-customDark1 text-center">
+                    {t("featureTitle1")}
+                  </h3>
+                  <p className="text-customDark1 text-lg font-normal text-center">
+                    {t("featureDesc1")}
+                    <br />
+                    {t("featureDesc1Extra")}
+                  </p>
+                </div>
+                {/* Vídeo */}
+                <div className="lg:flex-1 flex justify-center my-10 lg:my-0">
+                  <div className="rounded-3xl overflow-hidden bg-customDark1 w-[321px] h-[321px]">
+                    <VideoLoop
+                      src="/videos/plano-alimentar.mp4"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Seção Escura */}
-        <div className="flex-1 bg-customDark1 flex items-center">
-          <div className="container mx-auto px-6 lg:px-[150px] py-[50px]">
-            <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:gap-20">
-              {/* Texto */}
-              <div className="lg:flex-1 space-y-4">
-                <h3 className="text-3xl font-bold text-white text-center">
-                  {t("featureTitle2")}
-                </h3>
-                <p className="text-white text-lg font-normal text-center">
-                  {t("featureDesc2")}
-                </p>
-              </div>
-
-              {/* Vídeo */}
-              <div className="lg:flex-1 flex justify-center my-10 lg:my-0">
-                <div className="rounded-3xl overflow-hidden bg-white w-[321px] h-[321px]">
-                  <VideoLoop
-                    src="/videos/plano-alimentar.mp4"
-                    className="w-full"
-                  />
+          {/* Seção Escura */}
+          <div className="flex-1 bg-customDark1 flex items-center">
+            <div className="container mx-auto px-6 lg:px-[150px] py-[50px]">
+              <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:gap-20">
+                {/* Texto */}
+                <div className="lg:flex-1 space-y-4">
+                  <h3 className="text-3xl font-bold text-white text-center">
+                    {t("featureTitle2")}
+                  </h3>
+                  <p className="text-white text-lg font-normal text-center">
+                    {t("featureDesc2")}
+                  </p>
+                </div>
+                {/* Vídeo */}
+                <div className="lg:flex-1 flex justify-center my-10 lg:my-0">
+                  <div className="rounded-3xl overflow-hidden bg-white w-[321px] h-[321px]">
+                    <VideoLoop
+                      src="/videos/descreva-refeicao.mp4"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </VideoProvider>
 
       {/* TikTok Videos Section */}
       <section className="min-h-screen bg-white flex items-center relative">
