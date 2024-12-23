@@ -1,3 +1,4 @@
+// src/app/layout.js
 import localFont from "next/font/local";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
