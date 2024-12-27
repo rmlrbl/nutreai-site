@@ -34,9 +34,10 @@ export function Footer() {
               {t("footerNeedHelp")}
             </h4>
             <div className="space-y-3 justify-items-center">
+              {/* Pra voltar a aparecer o icone e o numero do whatsapp, basta mudar o className de 'hidden' para 'flex' */}
               <a
                 href="https://wa.me/5521999999999"
-                className="flex items-center text-gray-400 hover:text-white"
+                className="hidden items-center text-gray-400 hover:text-white"
               >
                 <svg
                   className="w-5 h-5 mr-2"
