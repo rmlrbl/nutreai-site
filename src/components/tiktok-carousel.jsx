@@ -1,3 +1,4 @@
+// src/components/tiktok-carousel.jsx
 "use client";
 
 import * as React from "react";

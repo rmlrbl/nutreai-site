@@ -22,6 +22,11 @@ export const translations = {
     featureDesc2:
       "Digite de forma breve a composição da sua refeição e contabilize seus macros e calorias como se estivesse conversando com um amigo.",
 
+    // Testimonials Carousel
+    testimonialsTitle: "O que nossos clientes têm a dizer",
+    testimonialsSubtitle:
+      "Veja como o nutre.ai ajudou nossos usuários a conquistarem uma vida mais saudável",
+
     // TikTok Section
     routineTitle: "O Melhor Amigo da Sua Rotina.",
 
@@ -145,6 +150,10 @@ export const translations = {
     featureTitle2: "Describe your meals simply and objectively",
     featureDesc2:
       "Briefly type the composition of your meal and track your daily macros and calories as if you were chatting with a friend.",
+
+    // Testimonials Carousel
+    testimonialsTitle: "what our customers think",
+    testimonialsSubtitle: "find out how nutre.ai is changing lives",
 
     // TikTok Section
     routineTitle: "Your Routine's Best Friend.",
