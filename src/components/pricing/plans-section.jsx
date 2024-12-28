@@ -8,8 +8,9 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { ToggleSwitch } from "./toggle-switch";
+import { Suspense } from "react";
 
-export function PlansSection({ selectedPlan, setSelectedPlan }) {
+function PlansContent({ selectedPlan, setSelectedPlan }) {
   const { currentLanguage } = useLanguage();
   const currentPlans = plans[currentLanguage];
   const [isAnnual, setIsAnnual] = useState(false);
@@ -67,5 +68,21 @@ export function PlansSection({ selectedPlan, setSelectedPlan }) {
         </div>
       )}
     </div>
+  );
+}
+
+export function PlansSection(props) {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center py-6 md:p-4">
+          <div className="w-full h-[800px] bg-gray-100 animate-pulse rounded-lg">
+            {/* Fallback do loading */}
+          </div>
+        </div>
+      }
+    >
+      <PlansContent {...props} />
+    </Suspense>
   );
 }

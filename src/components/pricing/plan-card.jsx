@@ -1,26 +1,27 @@
 // src/components/pricing/plan-card.jsx
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSearchParams } from "next/navigation";
 import { buildCheckoutUrl, extractTrackingParams } from "@/utils/checkout";
+import { Suspense } from "react";
 
-export function PlanCard({ plan }) {
+// Componente interno que lida com os parâmetros de busca
+function PlanCardContent({ plan }) {
   const { t, currentLanguage } = useLanguage();
   const searchParams = useSearchParams();
 
   const handleCheckout = () => {
     try {
-      // Extrair parâmetros de rastreamento da URL atual
       const trackingParams = extractTrackingParams(searchParams);
 
-      // Adicionar parâmetros personalizados se necessário
       const customParams = {
         visitor_id: Math.random().toString(36).substring(7),
         landing_page: window.location.pathname,
       };
 
-      // Construir URL do checkout
       const checkoutUrl = buildCheckoutUrl({
         language: currentLanguage,
         plan,
@@ -28,14 +29,11 @@ export function PlanCard({ plan }) {
         customParams,
       });
 
-      // Verificar se a URL foi construída corretamente
       if (!checkoutUrl) {
         console.error("Erro: URL do checkout não foi gerada corretamente");
         return;
       }
 
-      // Redirecionar para o checkout
-      console.log("Redirecionando para:", checkoutUrl); // Para debug
       window.location.href = checkoutUrl;
     } catch (error) {
       console.error("Erro ao processar checkout:", error);
@@ -84,5 +82,22 @@ export function PlanCard({ plan }) {
         </div>
       </div>
     </div>
+  );
+}
+
+// Componente exportado que envolve o conteúdo com Suspense
+export function PlanCard(props) {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center pt-6">
+          <div className="w-full lg:w-[360px] h-[600px] rounded-[16px] bg-[#F7F7F7] animate-pulse">
+            {/* Fallback do loading */}
+          </div>
+        </div>
+      }
+    >
+      <PlanCardContent {...props} />
+    </Suspense>
   );
 }
