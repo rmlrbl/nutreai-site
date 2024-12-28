@@ -3,7 +3,7 @@
 export const plans = {
   "pt-BR": {
     mensal: {
-      price: "R$ 49,90",
+      price: "R$ 79,90",
       period: "/mês",
       month: "Plano Mensal",
       discount: "Sem desconto especial",
@@ -18,7 +18,7 @@ export const plans = {
       ],
     },
     trimestral: {
-      price: "R$ 29,90",
+      price: "R$ 49,90",
       //period: "/mês",
       month: "Plano Trimestral",
       discount: "Com desconto especial",
@@ -30,12 +30,12 @@ export const plans = {
         "Relatório mensal",
         "Suporte por Whatsapp",
         "Cancele quando quiser",
-        "Renovação automática trimestral***",
+        "Renovação automática trimestral",
         "Desconto de 40%",
       ],
     },
     anual: {
-      price: "R$ 19,90",
+      price: "R$ 29,90",
       //period: "/mês",
       month: "Plano Anual",
       discount: "Com desconto especial",
@@ -47,7 +47,7 @@ export const plans = {
         "Relatório mensal",
         "Suporte por Whatsapp",
         "Cancele quando quiser",
-        "Renovação automática anual***",
+        "Renovação automática anual",
         "Desconto de 60% no plano anual",
       ],
     },
